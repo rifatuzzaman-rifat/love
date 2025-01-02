@@ -9,12 +9,12 @@
   "theme_color": "#00000",       // You can change this as well
   "icons": [
     {
-      "src": "icon-192x192.png",   // Path to the 192x192 icon in the root directory
+      "src": "/love/icon-192x192.png",   // Path to the 192x192 icon in the root directory
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512x512.png",    // Path to the 512x512 icon in the root directory
+      "src": "/love/icon-512x512.png",    // Path to the 512x512 icon in the root directory
       "sizes": "512x512",
       "type": "image/png"
     }
