@@ -1,0 +1,22 @@
+
+{
+  "name": "My Awesome Website",
+  "short_name": "AwesomeSite",
+  "description": "This is a website for awesome content.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffcc00",  // You can change this to match your site's theme
+  "theme_color": "#ff6600",       // You can change this as well
+  "icons": [
+    {
+      "src": "androidtitle.png",   // Path to the 192x192 icon in the root directory
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Android 512.png",    // Path to the 512x512 icon in the root directory
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
