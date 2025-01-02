@@ -1,16 +1,18 @@
-const CACHE_NAME = "love-animation-cache-v1";
+const CACHE_NAME = "my-webapp-cache-v1";
 const urlsToCache = [
     "/",
-    "index.html",
-    "style.css",
-    "app.js",
-    "bensound-romantic.mp3",
-    "test.jpeg",
-    "icon-192x192.png",
-    "icon-512x512.png"
+    "/index.html",
+    "/app.js",
+    "/style.css",
+    "/test.jpeg",
+    "/icon-192x192.png"
+    "/icon-512x512.png"// Replace with your image paths
+    "/bensound-romantic.mp3", // Replace with your music paths
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@400;700&display=swap",
 ];
 
-// Install Service Worker
+// Install service worker and cache files
 self.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -19,14 +21,13 @@ self.addEventListener("install", (event) => {
     );
 });
 
-// Activate Service Worker
+// Activate service worker and clean old caches
 self.addEventListener("activate", (event) => {
-    const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
-                    if (!cacheWhitelist.includes(cacheName)) {
+                    if (cacheName !== CACHE_NAME) {
                         return caches.delete(cacheName);
                     }
                 })
@@ -35,19 +36,11 @@ self.addEventListener("activate", (event) => {
     );
 });
 
-// Fetch data from cache or network
+// Fetch files from cache or network
 self.addEventListener("fetch", (event) => {
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            return (
-                cachedResponse ||
-                fetch(event.request).then((response) => {
-                    return caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, response.clone());
-                        return response;
-                    });
-                })
-            );
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request);
         })
     );
 });
