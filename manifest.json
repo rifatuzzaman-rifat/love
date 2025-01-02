@@ -1,8 +1,8 @@
 
 {
-  "name": "My Awesome Website",
-  "short_name": "AwesomeSite",
-  "description": "This is a website for awesome content.",
+  "name": "Love Animation",
+  "short_name": "AnimateLove",
+  "description": "This is a website for Love Animation.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffcc00",  // You can change this to match your site's theme
