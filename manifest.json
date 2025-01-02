@@ -5,8 +5,8 @@
   "description": "This is a website for Love Animation.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffcc00",  // You can change this to match your site's theme
-  "theme_color": "#ff6600",       // You can change this as well
+  "background_color": "#ffffff",  // You can change this to match your site's theme
+  "theme_color": "#00000",       // You can change this as well
   "icons": [
     {
       "src": "icon-192x192.png",   // Path to the 192x192 icon in the root directory
