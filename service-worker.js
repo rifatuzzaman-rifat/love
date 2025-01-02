@@ -1,13 +1,13 @@
 const CACHE_NAME = "my-webapp-cache-v1";
 const urlsToCache = [
     "/",
-    "/index.html",
-    "/app.js",
-    "/style.css",
-    "/test.jpeg",
-    "/icon-192x192.png"
-    "/icon-512x512.png"// Replace with your image paths
-    "/bensound-romantic.mp3", // Replace with your music paths
+    "/love/index.html",
+    "/love/app.js",
+    "/love/style.css",
+    "/love/test.jpeg",
+    "/love/icon-192x192.png"
+    "/love/icon-512x512.png"// Replace with your image paths
+    "/love/bensound-romantic.mp3", // Replace with your music paths
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
     "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@400;700&display=swap",
 ];
