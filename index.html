@@ -7,7 +7,7 @@
     <link rel="icon" href="firsttitleimage.ico" type="image/x-icon">
     <link rel="icon" href="androidtitle.png" sizes="192x192" type="image/png">
     <link rel="icon" href="Android 512.png" sizes="512x512" type="image/png">
-    <link rel="menifest" href="menifest.json">
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- For Music Icon -->
     <style>
@@ -176,11 +176,13 @@
         @media (max-width: 768px) {
             .love-message { font-size: 3rem; }
             .click-message { font-size: 1rem; padding: 8px 16px; }
+            .photo-frame { width: 250px; height: 350px; }
         }
 
         @media (max-width: 480px) {
             .love-message { font-size: 2.5rem; }
             .click-message { font-size: 0.9rem; padding: 6px 12px; }
+            .photo-frame { width: 200px; height: 300px; }
         }
     </style>
 </head>
@@ -209,8 +211,8 @@
         const emojis = ['😍', '😘', '🥰', '💘', '💝', '💖', '💗', '💓', '💞', '💕', '💟', '❣️', '❤️‍🔥', '❤️‍🩹', '❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍', '😻'];
         
         // Performance: Limit number of elements on screen
-        const maxHearts = 15;
-        const maxBubbles = 15;
+        const maxHearts = 10; // Reduced max number of hearts
+        const maxBubbles = 10; // Reduced max number of bubbles
         let currentHearts = [];
         let currentBubbles = [];
 
@@ -259,7 +261,6 @@
             "You make my world brighter! 🌟",
             "I’m so lucky to have you! 💝",
             "You complete me! 💘"
-            
         ];
 
         const clickMessageButton = document.querySelector('.click-message');
