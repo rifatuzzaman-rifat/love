@@ -9,12 +9,12 @@
   "theme_color": "#ff6600",       // You can change this as well
   "icons": [
     {
-      "src": "androidtitle.png",   // Path to the 192x192 icon in the root directory
+      "src": "icon-192x192.png",   // Path to the 192x192 icon in the root directory
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "Android 512.png",    // Path to the 512x512 icon in the root directory
+      "src": "icon-512x512.png",    // Path to the 512x512 icon in the root directory
       "sizes": "512x512",
       "type": "image/png"
     }
