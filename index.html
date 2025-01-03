@@ -13,6 +13,11 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@400;700&display=swap" as="style">
 <link rel="preload" href="/love/bensound-romantic.mp3" as="audio">
 <link rel="preload" href="/love/test.jpeg" as="image">
+<link rel="preload" href="/love/test1.jpg" as="image">
+<link rel="preload" href="/love/test2.jpg" as="image">
+<link rel="preload" href="/love/test3.jpg" as="image">
+<link rel="preload" href="/love/test4.jpg" as="image">
+<link rel="preload" href="/love/test5.jpg" as="image">
     <style>
         * {
             margin: 0;
@@ -294,27 +299,49 @@
             }
         });
 
-        clickMessageButton.addEventListener('click', () => {
-            music.play();
-            container.classList.add('moved');
-            
-            // Apply fade-out animation to current message
-            loveMessage.classList.add('fade-out');
-            
-            // Wait for the fade-out animation to finish before changing the text
-            setTimeout(() => {
-                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-                loveMessage.innerText = randomMessage;
-                
-                // Remove fade-out animation and apply fade-in animation
-                loveMessage.classList.remove('fade-out');
-                loveMessage.classList.add('fade-in');
-            }, 700); // 1000ms delay to match fade-out duration
-            
-            // Show Photo Frame
-            photoFrame.style.display = 'block';
-            photoFrame.style.top = '25%';
-        });
+      const messagesWithImages = [
+    { message: "You're the light of my life! 💖", image: "./test.jpeg" },
+    { message: "Forever and always! 💕", image: "./test1.jpg" },
+    { message: "You make my world brighter! 🌟", image: "./test2.jpg" },
+    { message: "I’m so lucky to have you! 💝", image: "./test3.jpg" },
+    { message: "You complete me! 💘", image: "./test4.jpg" }
+];
+
+let lastIndex = -1; // Track the last used index
+
+clickMessageButton.addEventListener('click', () => {
+    music.play();
+    container.classList.add('moved');
+    
+    // Apply fade-out animation to current message
+    loveMessage.classList.add('fade-out');
+    
+    // Wait for the fade-out animation to finish before changing the text and image
+    setTimeout(() => {
+        let newIndex;
+        do {
+            // Generate a new random index
+            newIndex = Math.floor(Math.random() * messagesWithImages.length);
+        } while (newIndex === lastIndex); // Ensure it’s not the same as the last one
+        lastIndex = newIndex; // Update the last used index
+        
+        const randomItem = messagesWithImages[newIndex];
+        loveMessage.innerText = randomItem.message;
+        
+        // Change the photo
+        const photoFrameImg = photoFrame.querySelector('img');
+        photoFrameImg.src = randomItem.image;
+        photoFrameImg.alt = randomItem.message; // Update alt for accessibility
+        
+        // Remove fade-out animation and apply fade-in animation
+        loveMessage.classList.remove('fade-out');
+        loveMessage.classList.add('fade-in');
+    }, 700); // 700ms delay to match fade-out duration
+    
+    // Show Photo Frame
+    photoFrame.style.display = 'block';
+    photoFrame.style.top = '25%';
+});
     </script>
     <script>
     if ("serviceWorker" in navigator) {
