@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign-Up - Love Animation</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #preloader span {
+            font-size: 2rem;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            animation: fadeInOut 1.5s infinite;
+        }
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Body */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #111;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Particle.js Container */
+       #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff758c, #ff7eb3); /* Match theme */
+    z-index: -1;
+}
+
+        /* Main Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .subtitle {
+            color: #f5f5f5;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1rem;
+        }
+        .btn {
+            background: #ff0078;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background: #ff1e91;
+            transform: scale(1.1);
+        }
+        .toggle {
+            margin-top: 15px;
+            color: #ff758c;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .toggle:hover {
+            color: #ff0078;
+            transform: scale(1.1);
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .social-button {
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .social-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .social-button img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <span>Loading...</span>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <div class="card" id="loginCard">
+            <h1 class="title">Login 💖</h1>
+            <p class="subtitle">Enter the world of love and magic</p>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Your Email" required>
+                <input type="password" id="loginPassword" placeholder="Your Password" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="social-buttons">
+                <button class="social-button"><img src="https://img.icons8.com/color/48/google-logo.png" alt="Google"></button>
+                <button class="social-button"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></button>
+                <button class="social-button"><img src="https://img.icons8.com/color/48/twitter--v1.png" alt="Twitter"></button>
+            </div>
+            <p class="toggle" onclick="showSignUp()">Don't have an account? Sign Up</p>
+        </div>
+
+        <div class="card" id="signUpCard" style="display: none;">
+            <h1 class="title">Sign Up 💕</h1>
+            <p class="subtitle">Join the world of love and magic</p>
+            <form id="signUpForm">
+                <input type="email" id="signUpEmail" placeholder="Your Email" required>
+                <input type="password" id="signUpPassword" placeholder="Create Password" required>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <div class="social-buttons">
+                <button class="social-button"><img src="https://img.icons8.com/color/48/google-logo.png" alt="Google"></button>
+                <button class="social-button"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></button>
+                <button class="social-button"><img src="https://img.icons8.com/color/48/twitter--v1.png" alt="Twitter"></button>
+            </div>
+            <p class="toggle" onclick="showLogin()">Already have an account? Login</p>
+        </div>
+    </div>
+
+    <script>
+        // Preloader
+        window.onload = function () {
+            document.getElementById("preloader").style.display = "none";
+        };
+
+        // Show/Hide Forms
+        function showSignUp() {
+            document.getElementById("loginCard").style.display = "none";
+            document.getElementById("signUpCard").style.display = "block";
+        }
+
+        function showLogin() {
+            document.getElementById("signUpCard").style.display = "none";
+            document.getElementById("loginCard").style.display = "block";
+        }
+
+        // Login System with Redirect
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            const storedPassword = localStorage.getItem(email);
+
+            if (storedPassword === password) {
+                // Redirect with preloader
+                document.getElementById("preloader").style.display = "flex";
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2000);
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+
+        // Particle.js Initialization
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: ["#ffffff"] },
+                shape: { type: "circle" },
+                opacity: { value: 0.7 },
+                size: { value: 4 },
+                line_linked: { enable: true, color: "#ffffff" },
+                move: { enable: true, speed: 6 }
+            }
+        });
+    </script>
+</body>
+</html>
