@@ -5,8 +5,16 @@ const urlsToCache = [
     "/love/app.js",
     "/love/style.css",
     "/love/test.jpeg",
-    "/love/icon-192x192.png"
-    "/love/icon-512x512.png"// Replace with your image paths
+    "/love/icon-192x192.png",
+    "/love/404.html",
+    "/love/test.jpeg",
+    "/love/test1.jpg",
+    "/love/test2.jpg",
+"/love/test3.jpg",
+"/love/test4.jpg",
+"/love/test5.jpg",
+"/love/test6.jpg",
+    "/love/icon-512x512.png",// Replace with your image paths
     "/love/bensound-romantic.mp3", // Replace with your music paths
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css",
     "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@400;700&display=swap",
